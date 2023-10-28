@@ -7,3 +7,7 @@ body {
   font-family: 'Roboto Slab', serif;
   background-color: aquamarine;
 }
+
+.image-inverted {
+  filter: invert(100%);
+}
