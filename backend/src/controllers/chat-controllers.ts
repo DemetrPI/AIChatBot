@@ -74,8 +74,8 @@ export const deleteChats = async (
     if (user._id.toString() !== res.locals.jwtData.id) {
       return res.status(401).send("Permissions didn't match");
     }
-    //@ts-ignore
-    user.chats = [];
+    
+    // user.chats = [];
     await user.save();
     return res.status(200).json({ message: "OK" });
   } catch (error) {
@@ -83,4 +83,3 @@ export const deleteChats = async (
     return res.status(200).json({ message: "ERROR", cause: error.message });
   }
 };
-//4:25:59
