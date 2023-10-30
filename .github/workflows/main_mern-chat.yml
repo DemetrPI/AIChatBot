@@ -53,4 +53,4 @@ jobs:
           app-name: 'mern-chat'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B1DA1F5738384333A3C27F31B80CA859 }}
-          package: ./backend
+          package: .
