@@ -20,21 +20,20 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'  
+          node-version: '18.x'
 
       - name: Install backend dependencies and build
         working-directory: backend
         run: |
-          cd dist  # Change to the dist directory within the backend
-          npm install --production  # Only production dependencies
+          cd backend  
+          npm install   
           cd ..
-          npm install  # Install any remaining dependencies
           
       - name: Zip artifact for deployment
-        run: zip release.zip backend/* -r  # Zip the backend code
+        run: zip -r release.zip backend  # Zip the backend code
 
-      - name: Zip frontend build
-        run: zip -r release.zip backend/client/*  # Add the frontend build to the zip
+      - name: Add frontend build to the zip
+        run: cd backend/client && zip -r ../../release.zip *
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
