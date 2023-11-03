@@ -25,7 +25,6 @@ jobs:
       - name: Install backend dependencies and build
         working-directory: backend
         run: |
-          cd backend  
           npm install   
           cd ..
           
