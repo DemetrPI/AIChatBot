@@ -33,13 +33,13 @@ jobs:
             cd frontend
             npm install
             npm run build
-            cp -r ./dist ../server/public  
+            cp -r ./dist ../backend/client 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: mern-app
-          path: mern/server       
+          path: backend       
                     
   deploy:
     runs-on: ubuntu-latest
