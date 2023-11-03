@@ -14,24 +14,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout the repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '18.x'  
 
-      - name: npm install, build, and test
+      - name: Install backend dependencies and build
+        working-directory: backend
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
-
+          cd dist  # Change to the dist directory within the backend
+          npm install --production  # Only production dependencies
+          cd ..
+          npm install  # Install any remaining dependencies
+          
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip release.zip backend/* -r  # Zip the backend code
+
+      - name: Zip frontend build
+        run: zip -r release.zip backend/client/*  # Add the frontend build to the zip
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: node-app
           path: release.zip
@@ -45,18 +51,17 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip release.zip -d release
 
       - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'mern-gpt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF96C723BB0549988A4E21BFABAD1644 }}
-          package: .
+          package: release
