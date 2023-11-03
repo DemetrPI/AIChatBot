@@ -21,15 +21,8 @@ export const loginValidator = [
   body("email").trim().isEmail().withMessage("Email is required"),
   body("password")
     .trim()
-    .notEmpty()
-    .isStrongPassword({
-      minLength: 6,
-      minLowercase: 1,
-      minUppercase: 1,
-      minNumbers: 1,
-      minSymbols: 1,
-    })
-    .withMessage("Password too simple!"),
+    .isLength({ min: 6 })
+    .withMessage("Password should contain atleast 6 characters"),
 ];
 
 export const signupValidator = [

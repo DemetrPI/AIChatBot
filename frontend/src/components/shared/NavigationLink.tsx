@@ -1,4 +1,3 @@
-import { teal } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 
 type Props = {

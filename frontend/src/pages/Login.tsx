@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import toast, { Toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import { MdLogin } from "react-icons/md";
 import CustomizedInput from "../components/shared/CustomizedInput";
