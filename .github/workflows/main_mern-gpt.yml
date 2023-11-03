@@ -30,17 +30,20 @@ jobs:
 
       - name: Install npm packages, build then copy files - client
         run: |
-            cd frontend
-            npm install
-            npm run build
-            cp -r ./dist ../backend/client 
+          cd frontend
+          npm install
+          npm run build
+          cp -r ./dist ../backend/client 
+
+      - name: Zip artifact for deployment
+        run: zip -r mern-app.zip backend  # Zip the backend code and client build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: mern-app
-          path: backend       
-                    
+          path: mern-app.zip
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -55,7 +58,7 @@ jobs:
           name: mern-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip -d release
+        run: unzip mern-app.zip -d release
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
