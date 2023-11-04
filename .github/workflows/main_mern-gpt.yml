@@ -58,7 +58,7 @@ jobs:
           name: mern-app
 
       - name: Unzip artifact for deployment
-        run: unzip mern-app.zip -d 
+        run: unzip mern-app.zip -d mern-app
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
