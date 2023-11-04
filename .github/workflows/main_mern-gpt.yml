@@ -57,12 +57,13 @@ jobs:
         with:
           name: mern-app
 
-      - name: Unzip artifact for deployment
-        run: unzip mern-app.zip -d mern-app
+      # - name: Unzip artifact for deployment
+      #   run: unzip mern-app.zip -d mern-app
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'mern-gpt'
+          slot-name: "Production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF96C723BB0549988A4E21BFABAD1644 }}
-          package: .
+          package: mern-app.zip
