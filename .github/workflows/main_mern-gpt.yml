@@ -65,4 +65,4 @@ jobs:
         with:
           app-name: 'mern-gpt'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF96C723BB0549988A4E21BFABAD1644 }}
-          package: backend
+          package: .
