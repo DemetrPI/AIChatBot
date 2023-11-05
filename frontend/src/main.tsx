@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "development") {
   axios.defaults.baseURL = "http://localhost:8080/api/v1";
 } else {
   // Production environment
-  axios.defaults.baseURL = "https://chat-function.azurewebsites.net/api/v1"; // Replace with your production URL
+  axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1"; // Replace with your production URL
 }
 
 axios.defaults.withCredentials = true;

@@ -2,7 +2,7 @@ import app from "./app.js";
 import { connectToDatabase } from "./db/connection.js";
 
 //connections and listeners
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 // Function to log a message periodically
 const logStatus = () => {
@@ -16,7 +16,7 @@ connectToDatabase()
       console.log("Server running, connected to DB");
 
       // Log "Everything is fine" every 30 seconds
-      setInterval(logStatus, 30000);
+      setInterval(logStatus, 15000);
     });
   })
   .catch((err) => console.log(err));
