@@ -9,9 +9,9 @@ const app = express();
 // app.use(cors({ origin: "https://green-field-04240d803.4.azurestaticapps.net/", credentials: true }));
 app.use(cors({
     origin: ["https://green-field-04240d803.4.azurestaticapps.net", "http://localhost:5173"],
-    methods: "GET,POST,PUT,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,
+    exposedHeaders: ["set-cookie"]
 }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
