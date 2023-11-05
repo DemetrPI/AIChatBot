@@ -1,33 +1,24 @@
 import express from "express";
 import { config } from "dotenv";
-// import morgan from "morgan";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 config();
-
 const app = express();
 
 //middlewares
-app.use(cors({ origin: "https://green-field-04240d803.4.azurestaticapps.net/", credentials: true }));
+// app.use(cors({ origin: "https://green-field-04240d803.4.azurestaticapps.net/", credentials: true }));
+app.use(
+  cors({
+    origin: "https://green-field-04240d803.4.azurestaticapps.net",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // Set to true if you're using cookies or sessions
+    optionsSuccessStatus: 204,
+  })
+);
+
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-
 app.use("/api/v1", appRouter);
 
 export default app;
-
-// app.use(express.static('./public'))
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../public", "index.html"))
-// })
-
-// // //logs for dev only
-// app.use(morgan("dev"));
