@@ -20,10 +20,10 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-app.use(express.static('./client'))
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "index.html"))
-})
+// app.use(express.static('./public'))
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "../public", "index.html"))
+// })
 
 // // //logs for dev only
 // app.use(morgan("dev"));
