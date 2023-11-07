@@ -13,7 +13,11 @@ const __dirname = dirname(__filename);
 //middlewares
 app.use(express.static(path.join(__dirname, '../dist/client')));
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../dist/client", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../dist/client", "index.html"),
+                 {headers: {
+                     "Content-Type":"text/html",
+                 }
+                 });
 });
 app.use(cors({
     origin: ["https://green-field-04240d803.4.azurestaticapps.net", "http://localhost:5173", "https://mern-chat.azurewebsites.net"],
