@@ -12,16 +12,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 //middlewares
-app.use(express.static(path.resolve(__dirname, 'dist', 'client'),
-              {extensions: ["js","css"]}));       
+// Serve the /assets route with the express.static middleware
+app.use('/assets', express.static(path.join(__dirname, 'dist', 'client', 'assets')));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../dist/client", "index.html"),
-                 {headers: {
-                     "Content-Type":"text/html",
-                 }
-                 });
+// Handle other routes and serve index.html for all unmatched routes
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'dist', 'client', 'index.html'), {
+    headers: {
+      'Content-Type': 'text/html',
+    },
+  });
 });
+
 app.use(cors({
     origin: ["https://green-field-04240d803.4.azurestaticapps.net", "http://localhost:5173", "https://mern-chat.azurewebsites.net"],
     credentials: true,
