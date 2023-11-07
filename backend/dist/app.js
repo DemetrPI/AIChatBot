@@ -10,8 +10,11 @@ config();
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 //middlewares
-app.use(express.static(path.join(__dirname, '../dist/client')));
+app.use(express.static(path.resolve(__dirname, 'dist', 'client'),
+              {extensions: ["js","css"]}));       
+
 app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../dist/client", "index.html"),
                  {headers: {
