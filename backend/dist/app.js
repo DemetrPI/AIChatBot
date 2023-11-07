@@ -12,9 +12,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 //middlewares
 // Handle other routes and serve index.html for all unmatched routes
-app.use(express.static("./client"));
+app.use(express.static("client"));
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client", 'index.html'));
+    res.sendFile(path.join(__dirname, "client", 'index.html'));
 });
 app.use(cors({
     origin: [
