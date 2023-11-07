@@ -13,7 +13,8 @@ const __dirname = dirname(__filename);
 
 //middlewares
 // Serve the /assets route with the express.static middleware
-app.use('/assets', express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.resolve(__dirname, 'client', 'assets')));       
+//app.use('/assets', express.static(path.join(__dirname, 'client')));
 
 // Handle other routes and serve index.html for all unmatched routes
 app.get('*', (req, res) => {
