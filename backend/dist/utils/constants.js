@@ -1,3 +1,3 @@
 export const COOKIE_NAME = "auth_token";
-export const DOMAIN = "green-field-04240d803.4.azurestaticapps.net";
+export const DOMAIN = "http://localhost:5000/";
 //# sourceMappingURL=constants.js.map
