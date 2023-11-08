@@ -23,10 +23,8 @@ app.use(cors({
     origin: [
         "https://green-field-04240d803.4.azurestaticapps.net",
         "http://localhost:5173",
-        "http://localhost:5000",
-        "http://localhost:8080",
         "https://mern-chat.azurewebsites.net",
-        "https://ai-chat-bot-delta.vercel.app"
+        "https://ai-chat-bot-delta.vercel.app",
     ],
     credentials: true,
 }));
