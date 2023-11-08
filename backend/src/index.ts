@@ -16,7 +16,7 @@ connectToDatabase()
       console.log("Server running, connected to DB");
 
       // Log "Everything is fine" every 30 seconds
-      setInterval(logStatus, 15000);
+      // setInterval(logStatus, 15000);
     });
   })
   .catch((err) => console.log(err));

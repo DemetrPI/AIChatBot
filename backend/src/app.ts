@@ -1,18 +1,17 @@
+// import morgan from "morgan";
 import express from "express";
 import { config } from "dotenv";
-import morgan from "morgan"
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
+// import path from "path";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
 
 config();
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 //middlewares
 // Handle other routes and serve index.html for all unmatched routes
@@ -23,7 +22,7 @@ const __dirname = dirname(__filename);
 // });
 
 //remove it in production
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 app.use(
   cors({
@@ -35,8 +34,6 @@ app.use(
       "https://mern-chat.azurewebsites.net",
     ],
     credentials: true,
-    optionsSuccessStatus: 204,
-    exposedHeaders: ["set-cookie"],
   })
 );
 app.use(express.json());
