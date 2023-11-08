@@ -32,6 +32,7 @@ app.use(
       "http://localhost:5000",
       "http://localhost:8080",
       "https://mern-chat.azurewebsites.net",
+      "https://ai-chat-bot-delta.vercel.app"
     ],
     credentials: true,
   })
