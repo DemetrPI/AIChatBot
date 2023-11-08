@@ -1,5 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
+import morgan from "morgan"
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -15,11 +16,14 @@ const __dirname = dirname(__filename);
 
 //middlewares
 // Handle other routes and serve index.html for all unmatched routes
-app.use(express.static("client"));
+// app.use(express.static("client"));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname,  "client", 'index.html'));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname,  "client", 'index.html'));
+// });
+
+//remove it in production
+app.use(morgan("dev"));
 
 app.use(
   cors({
