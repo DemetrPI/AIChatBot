@@ -2,6 +2,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
+import { BASE_URL } from "./helpers/base_url.ts";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.tsx";
@@ -10,7 +11,7 @@ import axios from "axios";
 
 
 // Production environment
-axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1";
+axios.defaults.baseURL = BASE_URL;
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({

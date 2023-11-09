@@ -1,30 +1,29 @@
 import morgan from "morgan";
 import express from "express";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
 import { config } from "dotenv";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
-
 config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 const app = express();
 
 // middlewares
 // Handle other routes and serve index.html for all unmatched routes
 // Serve static files from the "client" directory
-app.use(express.static(path.join(__dirname, "client")));
+// app.use(express.static(path.join(__dirname, "client")));
 
-// Handle other routes and serve index.html only if the route doesn't match a static file
-app.get("*", (req, res) => {
-  const indexHtmlPath = path.join(__dirname, "client", "index.html");
-  res.sendFile(indexHtmlPath);
-});
+// // Handle other routes and serve index.html only if the route doesn't match a static file
+// app.get("*", (req, res) => {
+//   const indexHtmlPath = path.join(__dirname, "client", "index.html");
+//   res.sendFile(indexHtmlPath);
+// });
 
 
 //remove it in production

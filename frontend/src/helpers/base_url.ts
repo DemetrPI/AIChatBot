@@ -1,0 +1,1 @@
+export const BASE_URL ="https://mern-chat.azurewebsites.net/api/v1"
