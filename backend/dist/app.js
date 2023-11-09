@@ -1,16 +1,15 @@
-// import morgan from "morgan";
+import morgan from "morgan";
 import express from "express";
 import { config } from "dotenv";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-// import path from "path";
-// import { fileURLToPath } from "url";
-// import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 config();
 const app = express();
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 //middlewares
 // Handle other routes and serve index.html for all unmatched routes
 // app.use(express.static("client"));
@@ -18,7 +17,7 @@ const app = express();
 //   res.sendFile(path.join(__dirname,  "client", 'index.html'));
 // });
 //remove it in production
-// app.use(morgan("dev"));
+app.use(morgan());
 app.use(cors({
     origin: [
         "https://green-field-04240d803.4.azurestaticapps.net",
