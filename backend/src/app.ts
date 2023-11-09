@@ -22,7 +22,7 @@ const __dirname = dirname(__filename);
 // });
 
 //remove it in production
-app.use(morgan());
+app.use(morgan("dev"));
 
 app.use(
   cors({
@@ -33,6 +33,7 @@ app.use(
       "https://ai-chat-bot-delta.vercel.app",
     ],
     credentials: true,
+    methods: ["GET", "PUT","POST", "OPTIONS","DELETE"]
   })
 );
 app.use(express.json());

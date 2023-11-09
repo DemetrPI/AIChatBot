@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 //   res.sendFile(path.join(__dirname,  "client", 'index.html'));
 // });
 //remove it in production
-app.use(morgan());
+app.use(morgan("dev"));
 app.use(cors({
     origin: [
         "https://green-field-04240d803.4.azurestaticapps.net",
@@ -26,6 +26,7 @@ app.use(cors({
         "https://ai-chat-bot-delta.vercel.app",
     ],
     credentials: true,
+    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"]
 }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));

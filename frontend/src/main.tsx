@@ -13,7 +13,7 @@ import axios from "axios";
 // axios.defaults.baseURL = "http://localhost:5000/api/v1";
 
 // Production environment
-axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1/";
+axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1";
 
 axios.defaults.withCredentials = true;
 
