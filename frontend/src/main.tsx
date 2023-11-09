@@ -8,8 +8,6 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-//Local environment
-// axios.defaults.baseURL = "http://localhost:5000/api/v1";
 
 // Production environment
 axios.defaults.baseURL = "https://mern-chat.azurewebsites.net:5000/api/v1";
