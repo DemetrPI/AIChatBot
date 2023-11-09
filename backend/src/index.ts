@@ -4,7 +4,6 @@ import app from "./app.js";
 // import { dirname } from "path";
 // import express from "express";
 import { connectToDatabase } from "./db/connection.js";
-
 // const frontendApp = express();
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = dirname(__filename);
