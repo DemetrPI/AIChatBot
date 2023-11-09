@@ -10,7 +10,7 @@ import axios from "axios";
 
 
 // Production environment
-axios.defaults.baseURL = "https://mern-chat.azurewebsites.net:5000/api/v1";
+axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1";
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({
