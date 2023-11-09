@@ -8,13 +8,11 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-
 //Local environment
 // axios.defaults.baseURL = "http://localhost:5000/api/v1";
 
 // Production environment
-axios.defaults.baseURL = "https://mern-chat.azurewebsites.net/api/v1";
-
+axios.defaults.baseURL = "https://mern-chat.azurewebsites.net:5000/api/v1";
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({
@@ -23,10 +21,6 @@ const theme = createTheme({
     allVariants: { color: "white" },
   },
 });
-
-// Define and set your authToken here
-const authToken = "auth_token"; // Replace with your actual authentication token
-console.log('Token to send:', authToken); // Log the token before making requests
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

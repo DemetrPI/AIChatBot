@@ -4,17 +4,16 @@ import { config } from "dotenv";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 config();
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 //middlewares
 // Handle other routes and serve index.html for all unmatched routes
-// app.use(express.static("client"));
+// Serve static files from the "client" directory
+// app.use(express.static(path.join(__dirname, "client")));
+// // Handle other routes and serve index.html only if the route doesn't match a static file
 // app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname,  "client", 'index.html'));
+//   const indexHtmlPath = path.join(__dirname, "client", "index.html");
+//   res.sendFile(indexHtmlPath);
 // });
 //remove it in production
 app.use(morgan("dev"));
@@ -22,12 +21,13 @@ app.use(cors({
     origin: [
         "https://green-field-04240d803.4.azurestaticapps.net",
         "http://localhost:5173",
-        "https://mern-chat.azurewebsites.net",
+        "http://localhost:5000",
+        "http://localhost:7000",
+        "https://mern-chat.azurewebsites.net:5000",
+        "https://mern-chat.azurewebsites.net:7000",
         "https://ai-chat-bot-delta.vercel.app",
-        "https://*.vercel.app"
     ],
     credentials: true,
-    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"]
 }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
