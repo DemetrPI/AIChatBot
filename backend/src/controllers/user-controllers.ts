@@ -82,10 +82,10 @@ export const userLogin = async (
     // create token and store cookie
 
     res.clearCookie(COOKIE_NAME, {
-      httpOnly: true,
-      domain: DOMAIN,
-      signed: true,
       path: "/",
+      domain: DOMAIN,
+      httpOnly: true,
+      signed: true,
     });
 
     const token = createToken(user._id.toString(), user.email, "7d");
@@ -147,10 +147,10 @@ export const userLogout = async (
     }
 
     res.clearCookie(COOKIE_NAME, {
-      httpOnly: true,
-      domain: DOMAIN,
-      signed: true,
       path: "/",
+      domain: DOMAIN,
+      httpOnly: true,
+      signed: true,
     });
 
     return res

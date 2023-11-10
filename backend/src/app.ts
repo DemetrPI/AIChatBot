@@ -35,7 +35,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://ai-chat-1mwy.onrender.com"
+      "https://*.onrender.com"
     ],
     credentials: true,
 

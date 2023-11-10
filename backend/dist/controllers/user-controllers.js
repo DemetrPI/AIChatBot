@@ -63,10 +63,10 @@ export const userLogin = async (req, res, next) => {
         }
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
-            domain: DOMAIN,
-            signed: true,
             path: "/",
+            domain: DOMAIN,
+            httpOnly: true,
+            signed: true,
         });
         const token = createToken(user._id.toString(), user.email, "7d");
         const expires = new Date();
@@ -117,10 +117,10 @@ export const userLogout = async (req, res, next) => {
             return res.status(401).send("Permissions didn't match");
         }
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
-            domain: DOMAIN,
-            signed: true,
             path: "/",
+            domain: DOMAIN,
+            httpOnly: true,
+            signed: true,
         });
         return res
             .status(200)
