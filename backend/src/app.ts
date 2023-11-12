@@ -7,8 +7,7 @@ import { config } from "dotenv";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { COOKIE_NAME } from "./utils/constants.js";
-import cookieSession from "cookie-session"
+
 config();
 
 // const __filename = fileURLToPath(import.meta.url);
@@ -44,10 +43,5 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(cookieSession({
-  name: COOKIE_NAME,
-  keys: process.env.COOKIE_SECRET,
-  maxAge: 24 * 60 * 60 * 1000*7 // 24 hours
-}))
 app.use("/api/v1", appRouter);
 export default app;

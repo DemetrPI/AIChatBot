@@ -7,8 +7,6 @@ import { config } from "dotenv";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { COOKIE_NAME } from "./utils/constants.js";
-import cookieSession from "cookie-session";
 config();
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = dirname(__filename);
@@ -27,18 +25,13 @@ app.use(morgan("dev"));
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://*.onrender.com",
-        "https://*.dmytro.com.pl"
+        "https://api.dmytro.com.pl",
+        "https://chat.dmytro.com.pl"
     ],
     credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(cookieSession({
-    name: COOKIE_NAME,
-    keys: process.env.COOKIE_SECRET,
-    maxAge: 24 * 60 * 60 * 1000 * 7 // 24 hours
-}));
 app.use("/api/v1", appRouter);
 export default app;
 //# sourceMappingURL=app.js.map
