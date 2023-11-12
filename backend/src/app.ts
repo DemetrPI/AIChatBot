@@ -35,8 +35,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://*.onrender.com",
-      "https://*.dmytro.com.pl"
+      "https://api.dmytro.com.pl",
+      "https://chat.dmytro.com.pl"
     ],
     credentials: true,
 
