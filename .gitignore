@@ -4,3 +4,7 @@
 
 .vscode/extensions.json
 .vscode/settings.json
+deployment.yaml
+service.yaml
+settings.yaml
+.vscode/launch.json
